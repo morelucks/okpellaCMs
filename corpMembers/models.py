@@ -35,6 +35,12 @@ class User(AbstractUser):
         ('Single', 'Single'),
         ('married', 'Married'),
     )
+    GENDER_CHOICES = (
+        ('male', 'Male'),
+        ('female', 'Female'),
+        ('other', 'Other'),
+    )
+
 
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
@@ -43,9 +49,12 @@ class User(AbstractUser):
     image = models.ImageField(upload_to='photos/', blank=True)
     phone_number = models.CharField(max_length=15, blank=True, null=True)
     email = models.EmailField(unique=True)
+    username = models.CharField(max_length=150, unique=True)
     PPA=models.TextField()
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True, blank=True)
+    gender = models.CharField(max_length=10, null=True, choices=GENDER_CHOICES)
 
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True, blank=True)
+    password = models.CharField(max_length=128)
     def get_url(self):
         return reverse('cmdetails', args=[self.pk])
 
