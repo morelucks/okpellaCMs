@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # Create your views here.
 from django.shortcuts import get_object_or_404
@@ -27,6 +27,7 @@ def register(request):
         if form.is_valid():
             # Process the form data
             form.save()
+            return redirect('home') 
     else:
         form = UserForm()
     
