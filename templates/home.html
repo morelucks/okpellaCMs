@@ -45,9 +45,10 @@
       </p>
     </div>
   
-  {% for  user in users %}
-  {% if user.image %}
+
     <div class="w3-row-padding w3-grayscale">
+      {% for  user in users %}
+      {% if user.image %}
       <div class="w3-col l3 m6 w3-margin-bottom">
         <img src="{{user.image.url}}" alt="John" style="width:100%">
         <h3>{{user.username}}</h3>
@@ -55,32 +56,13 @@
         <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
         <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
       </div>
-      <div class="w3-col l3 m6 w3-margin-bottom">
-        <img src="{% static '/images/banna.jpeg' %}" alt="Jane" style="width:100%">
-        <h3>Jane Doe</h3>
-        <p class="w3-opacity">Architect</p>
-        <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-        <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
-      </div>
-      <div class="w3-col l3 m6 w3-margin-bottom">
-        <img src="{% static '/images/member/team3.jpg' %}" alt="Mike" style="width:100%">
-        <h3>Mike Ross</h3>
-        <p class="w3-opacity">Architect</p>
-        <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-        <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
-      </div>
-      <div class="w3-col l3 m6 w3-margin-bottom">
-        <img src="{% static '/images/banna.jpeg' %}" alt="Dan" style="width:100%">
-        <h3>Dan Star</h3>
-        <p class="w3-opacity">Architect</p>
-        <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-        <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
-      </div>
+     
+    
+      {% else %}
+     
+      {% endif %}
+      {% endfor %}
     </div>
-    {% else %}
-   
-    {% endif %}
-    {% endfor %}
     <!-- Contact Section -->
     <div class="w3-container w3-padding-32" id="contact">
       <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Contact</h3>

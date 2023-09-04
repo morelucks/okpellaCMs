@@ -54,3 +54,8 @@ def login_view(request):
 def logoutUser(request):
     logout(request)
     return redirect('home')
+
+
+def contact(request):
+  
+    return render(request, 'contact.html')
