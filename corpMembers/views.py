@@ -3,7 +3,7 @@ from django.shortcuts import get_object_or_404
 from django.views.generic import DetailView
 from .models import User  # Import your User model
 from django.shortcuts import render
-from .forms import  UserForm, LoginForm
+from .forms import  UserForm, LoginForm, ContactForm
 from django.contrib.auth import authenticate, login, logout
 
 
@@ -55,7 +55,15 @@ def logoutUser(request):
     logout(request)
     return redirect('home')
 
-
 def contact(request):
-  
-    return render(request, 'contact.html')
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            # Create a new Contact instance and save it to the database
+            contact = form.save()
+            # You can add any additional logic here, such as sending email notifications
+            return redirect('home')  # Redirect to a success page
+    else:
+        form = ContactForm()
+    
+    return render(request, 'contact.html', {'form': form})

@@ -61,3 +61,11 @@ class User(AbstractUser):
    
     def __str__(self):
         return self.username
+class Contact(models.Model):
+    name = models.CharField(max_length=255)
+    email = models.EmailField(max_length=255)
+    subject = models.CharField(max_length=255)
+    comment = models.TextField()
+
+    def __str__(self):
+        return self.name
