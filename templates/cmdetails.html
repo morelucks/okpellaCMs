@@ -19,18 +19,17 @@
 		<main class="col-md-6 border-left">
 <article class="content-body">
 
-<h2 class="title">{{user.first_name}} {{user.last_name}} </h2>
+<h2 class="title">Name: {{user.first_name}} {{user.last_name}} </h2>
 
-<div class="mb-3"> 
-	<var class="price h4">{{user.status}} </var> 
-</div> 
+<h6>Status: {{user.status}} </h6><br>
 
-<p>{{user.phone_number}} </p>
+<h6>Phone: {{user.phone_number}} </h6><br>
+<h6>Dsicipline: {{user.discipline}} </h6><br>
+<h6>Email: {{user.email}} </h6><br>
+<h6>NYSC Batch: {{user.category}} </h6><br>
+<hr><br>
 
-<p>{{user.discipline}} </p>
-<p>{{user.email}} </p>
-<p>{{user.category}} </p>
-<hr>
+<h6>PPA: {{user.PPA}} </h6><br>
 	<hr>
 	<a href="{% url 'home' %}" class="btn  btn-primary"> <span class="text">home</span> <i class="fas fa-shopp"></i>  </a>
 </article> <!-- product-info-aside .// -->
