@@ -19,7 +19,8 @@ class UserDetailView(DetailView):
     template_name = 'cmdetails.html'  
     context_object_name = 'user'
 
-
+def about(request):
+    return render(request, 'about.html')
 
 def register(request):
     if request.method == 'POST':

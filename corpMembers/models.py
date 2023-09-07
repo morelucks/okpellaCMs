@@ -69,3 +69,12 @@ class Contact(models.Model):
 
     def __str__(self):
         return self.name
+class About(models.Model):
+    position = models.CharField(max_length=100)
+    name = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='about_images/')
+    phone_number = models.CharField(max_length=15, blank=True, null=True)
+    email = models.EmailField(max_length=255)
+
+    def __str__(self):
+        return self.name
