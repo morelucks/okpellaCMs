@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.shortcuts import get_object_or_404
 from django.views.generic import DetailView
-from .models import User  # Import your User model
+from .models import User , About # Import your User model
 from django.shortcuts import render
 from .forms import  UserForm, LoginForm, ContactForm
 from django.contrib.auth import authenticate, login, logout
@@ -20,7 +20,11 @@ class UserDetailView(DetailView):
     context_object_name = 'user'
 
 def about(request):
-    return render(request, 'about.html')
+     abouts= About.objects.all()
+     context={
+        'abouts':abouts
+    }
+     return render(request, 'about.html', context)
 
 def register(request):
     if request.method == 'POST':

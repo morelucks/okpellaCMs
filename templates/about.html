@@ -13,35 +13,18 @@
 
   <div class="w3-row-padding w3-grayscale">
     <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Leaders</h3>
+{% for about in abouts %}
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <img src="{{about.image.url}}" alt="John" style="width:100%">
+      <h5>Name: {{about.name}}</h5>
+      <h6 class="w3-opacity">Position: {{about.position}}</h6>
+      <h6>Name: {{about.phone_number}}</h6>
+      <h6>Name: {{about.email}}</h6>
 
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <img src="/w3images/team2.jpg" alt="John" style="width:100%">
-      <h3>John Doe</h3>
-      <p class="w3-opacity">CEO & Founder</p>
-      <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-      <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
+      <p><a href="https://web.whatsapp.com/"><button class="w3-button w3-light-grey w3-block">Contact</button></a></p>
     </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <img src="/w3images/team1.jpg" alt="Jane" style="width:100%">
-      <h3>Jane Doe</h3>
-      <p class="w3-opacity">Architect</p>
-      <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-      <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
-    </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <img src="/w3images/team3.jpg" alt="Mike" style="width:100%">
-      <h3>Mike Ross</h3>
-      <p class="w3-opacity">Architect</p>
-      <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-      <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
-    </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <img src="/w3images/team4.jpg" alt="Dan" style="width:100%">
-      <h3>Dan Star</h3>
-      <p class="w3-opacity">Architect</p>
-      <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-      <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
-    </div>
+  
+    {% endfor %}
   </div>
 
 
