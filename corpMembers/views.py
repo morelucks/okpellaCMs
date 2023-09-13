@@ -81,9 +81,10 @@ def search(request):
         keyword = request.GET['keyword']
         if keyword:
             users = User.objects.filter(Q(first_name__icontains=keyword) | Q(PPA=keyword))
-
+            users_count=users.count()
     context = {
         'users': users,
+        'users_count':users_count
     }
 
     return render(request, 'search.html', context)
