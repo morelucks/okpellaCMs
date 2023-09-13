@@ -5,6 +5,8 @@ from .models import User , About # Import your User model
 from django.shortcuts import render
 from .forms import  UserForm, LoginForm, ContactForm
 from django.contrib.auth import authenticate, login, logout
+from django.db.models import Q
+
 
 
 def home(request):
@@ -72,3 +74,16 @@ def contact(request):
         form = ContactForm()
     
     return render(request, 'contact.html', {'form': form})
+
+def search(request):
+    users = []  # Initialize with an empty queryset
+    if 'keyword' in request.GET:
+        keyword = request.GET['keyword']
+        if keyword:
+            users = User.objects.filter(Q(first_name__icontains=keyword) | Q(PPA=keyword))
+
+    context = {
+        'users': users,
+    }
+
+    return render(request, 'search.html', context)
