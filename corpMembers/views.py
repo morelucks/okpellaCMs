@@ -11,10 +11,10 @@ from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 
 
 def home(request):
-    users = User.objects.all()  # Get all users
+    users = User.objects.all().order_by('-id')  # Get all users
     
     # Define the number of items per page
-    items_per_page = 7 # Adjust this to your desired number of users per page
+    items_per_page = 7
 
     paginator = Paginator(users, items_per_page)
     page = request.GET.get('page')
