@@ -6,14 +6,32 @@ from django.shortcuts import render
 from .forms import  UserForm, LoginForm, ContactForm
 from django.contrib.auth import authenticate, login, logout
 from django.db.models import Q
+from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 
 
 
 def home(request):
-    users= User.objects.all()
-    context={
-        'users':users
+    users = User.objects.all()  # Get all users
+    
+    # Define the number of items per page
+    items_per_page = 7 # Adjust this to your desired number of users per page
+
+    paginator = Paginator(users, items_per_page)
+    page = request.GET.get('page')
+
+    try:
+        paged_users = paginator.get_page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver the first page.
+        paged_users = paginator.get_page(1)
+    except EmptyPage:
+        # If page is out of range (e.g., 9999), deliver the last page of results.
+        paged_users = paginator.get_page(paginator.num_pages)
+
+    context = {
+        'users': paged_users,
     }
+
     return render(request, "home.html", context)
 
 class UserDetailView(DetailView):
