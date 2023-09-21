@@ -82,8 +82,13 @@ WSGI_APPLICATION = 'OkpellaCM.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD':'6vZyL3OjPlLGF2QDmby4',
+        'HOST':'containers-us-west-191.railway.app',
+        'PORT':  '5744',
+
     }
 }
 
