@@ -1,1 +1,1 @@
-web: gunicorn OkpellaCM.wsgi --log-file--
+web: gunicorn OkpellaCM.wsgi
