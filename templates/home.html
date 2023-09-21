@@ -24,11 +24,11 @@
         {% if uxer.image %}
       <div class="w3-col l3 m6 w3-margin-bottom">
         <div class="w3-display-container">
-          <div class="w3-display-topleft w3-black w3-padding">{{uxer.username}}</div>
           <a href="{{uxer.get_url}}">
+          <div class="w3-display-topleft w3-opacity w3-text-black w3-xlarge w3-grey w3-round-large w3-padding">{{uxer.username}} <i class="fa fa-eye " style="font-size:25px;color:green"></i></div>
+        </a>
             <img height="400px" width="100%" src="{{uxer.image.url}}" alt="House" >
-            <div class="w3-display-bottomright w3-black w3-padding">VIEW</div>
-          </a>
+         
         </div>
       </div>
       {% endif %}
